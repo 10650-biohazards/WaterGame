@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import Demos.Gagarin.dubinCurve.Node;
 import Demos.Gagarin.dubinCurve.curveProcessor;
 import FtcExplosivesPackage.ExplosiveAuto;
+import Utilities.Utility;
 
 @Autonomous (name = "Big Boy")
 public class legalAuto extends ExplosiveAuto {
@@ -15,6 +16,8 @@ public class legalAuto extends ExplosiveAuto {
     private Node currentNode;
 
     private driveTracker track;
+
+    Utility u = new Utility(this);
 
     @Override
     public void initHardware() {
@@ -34,6 +37,9 @@ public class legalAuto extends ExplosiveAuto {
         curve.move(currentNode, new Node(2, 3, 0));
         currentNode = new Node(track.x, track.y, robot.gyro.getYaw());
         curve.move(currentNode, new Node(0, 0, 180));
+
+        telemetry.addData("X", track.x);
+        telemetry.addData("Y", track.y);
 
     }
 
