@@ -40,7 +40,8 @@ public class legalAuto extends ExplosiveAuto {
 
         telemetry.addData("X", track.x);
         telemetry.addData("Y", track.y);
-
+        telemetry.update();
+        u.waitMS(3000);
     }
 
     @Override
